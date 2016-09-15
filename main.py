@@ -5,7 +5,6 @@ with open("/usr/share/dict/words") as word_list:
     full_list = word_list.read().upper().split()
 
 random_word = random.choice(full_list)
-print(random_word)
 
 print("Welcome to Mystery Word! Your word has {} letters.".format(len(random_word)))
 
@@ -20,24 +19,19 @@ while len(bad_guess) < 8 and set(good_guess) != set(random_word):
 
     if guess in good_guess or guess in bad_guess:
         print("You've already guessed that letter!")
-
     elif guess in random_word:
         print("{} is in the mystery word!".format(guess))
         good_guess.append(guess)
         for location, letter in enumerate(random_word):
             if guess == letter:
-                line[location]= (guess)
+                line[location] = guess
         print(*line)
-
     else:
         print("{} is not in the mystery word.".format(guess))
         bad_guess.append(guess)
-
     print("You've used {}/8 bad guesses.".format(len(bad_guess)))
-
 
 if set(good_guess) == set(random_word):
     print("You win! The mystery word was {}".format(random_word))
-
 if len(bad_guess) == 8:
     print("Game over! The mystery word was {}".format(random_word))

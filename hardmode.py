@@ -5,7 +5,6 @@ from string import ascii_lowercase
 with open("/usr/share/dict/words") as word_list:
     full_list = word_list.read().lower().split()
 
-
 def replay():
     play_again = input("Play again? Y/n: ")
     if play_again.lower() != 'n':
@@ -32,7 +31,7 @@ def levels():
     else:
         while True:
             random_word = random.choice(full_list)
-            if len(random_word) in range(10, 50):
+            if len(random_word) in range(10, 100):
                 game(random_word)
 
     return random_word
@@ -76,9 +75,9 @@ def game(random_word):
         print("You've used {}/8 bad guesses.".format(len(bad_guess)))
 
     if set(good_guess) == set(random_word):
-        print("You win! The mystery word was {}".format(random_word))
+        print("You win! The mystery word was '{}'".format(random_word))
     if len(bad_guess) == 8:
-        print("Game over! The mystery word was {}".format(random_word))
+        print("Game over! The mystery word was '{}'".format(random_word))
 
     replay()
 

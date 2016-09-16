@@ -17,9 +17,6 @@ line = list(("_" * len(random_word)))
 while len(bad_guess) < 8 and set(good_guess) != set(random_word):
     guess = input("Guess one letter at a time: ")
     guess = guess.upper()
-    if len(guess) != 1:
-        print("You can only guess one letter at a time!")
-        continue
 
     if guess in good_guess or guess in bad_guess:
         print("You've already guessed that letter!")

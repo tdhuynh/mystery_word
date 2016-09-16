@@ -31,7 +31,7 @@ def levels():
     else:
         while True:
             random_word = random.choice(full_list)
-            if len(random_word) in range(10, 100):
+            if len(random_word) >= 10:
                 game(random_word)
 
     return random_word

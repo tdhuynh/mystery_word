@@ -2,7 +2,7 @@ import sys
 import random
 
 with open("/usr/share/dict/words") as word_list:
-    full_list = word_list.read().upper().split()
+    full_list = word_list.read().lower().split()
 
 def game():
     good_guess = []
@@ -14,7 +14,7 @@ def game():
 
     while len(bad_guess) < 8 and set(good_guess) != set(random_word):
         guess = input("Guess a letter: ")
-        guess = guess.upper()
+        guess = guess.lower()
         if len(guess) != 1:
             print("You can only guess one letter at a time! Try again.")
             continue

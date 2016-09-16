@@ -50,10 +50,14 @@ def game(random_word):
         guess = guess.lower()
         if len(guess) != 1:
             print("You can only guess one letter at a time! Try again.")
+            print(*line)
+            print(*choices)
             continue
 
         if guess in good_guess or guess in bad_guess:
             print("You've already guessed that letter! Try again.")
+            print(*line)
+            print(*choices)
         elif guess in random_word:
             print("'{}' is in the mystery word!".format(guess))
             good_guess.append(guess)

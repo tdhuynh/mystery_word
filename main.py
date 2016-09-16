@@ -33,7 +33,6 @@ while len(bad_guess) < 8 and set(good_guess) != set(random_word):
             if guess == letter:
                 line[location] = guess
         print(*line)
-
         if guess in choices:
             choices.remove(guess)
             print(*choices)
@@ -41,6 +40,10 @@ while len(bad_guess) < 8 and set(good_guess) != set(random_word):
     else:
         print("{} is not in the mystery word.".format(guess))
         bad_guess.append(guess)
+        print(*line)
+        if guess in choices:
+            choices.remove(guess)
+            print(*choices)
 
     print("You've used {}/8 bad guesses.".format(len(bad_guess)))
 
